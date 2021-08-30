@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+    branches:
+      - '**'
+  release:
+    types:
+      - created
+
+jobs:
+  app_build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: initialize
+        run: |
+          node --version
+          npm --version
+          npm i 
+      - name: lint and build and test
+        run: |
+          npm run build:api
+      - uses: actions/upload-artifact@v1
+        with:
+          name: dist
+          path: ops/app/out

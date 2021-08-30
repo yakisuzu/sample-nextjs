@@ -1,0 +1,49 @@
+{
+  "name": "sample-nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "local:api": "npm run lint:fix && next dev",
+    "local:mock": "npm run lint:fix && URL=mock next dev",
+    "build": "next build && next export -o ops/app/out",
+    "build:api": "npm run lint && npm run build && npm run test",
+    "build:mock": "npm run lint && URL=mock npm run build && npm run test",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "mui-datatables": "^3.4.1",
+    "next": "9.3.5",
+    "notistack": "^1.0.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.2",
+    "@testing-library/react-hooks": "^3.4.1",
+    "@types/jest": "^26.0.13",
+    "@types/node": "^12.12.54",
+    "@types/react": "^16.9.46",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "eslint": "^7.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.1",
+    "react-test-renderer": "^16.13.1",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
+  },
+  "engines": {
+    "node": "14",
+    "npm": "6"
+  }
+}
